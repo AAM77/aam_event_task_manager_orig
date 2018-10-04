@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :friend_requests
   #root url
   root 'static_pages#home'
 

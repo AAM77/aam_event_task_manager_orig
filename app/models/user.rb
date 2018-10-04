@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :user_tasks
   has_many :events, through: :user_events
   has_many :tasks, through: :user_tasks
+  has_many :friend_requests, dependent: :destroy
+  has_many :pending_friends, through: :friend_requests, source: :friend
 
   has_secure_password(validations: false)
   validates_presence_of :password, on: :create, unless: :other_provider?
